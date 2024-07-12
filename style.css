@@ -1,0 +1,167 @@
+* {
+
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+
+    background: transparent;
+    color: inherit;
+}
+
+:root {
+
+    --bordure-bouton: #F21D1D;
+    --bordure-carte: #97BF04;
+    --couleur-fond: #1f9ebe;
+    --couleur-texte: #22ff00;
+    --fond-bouton: #A60303;
+    --fond-bouton-actif: #F21D1D;
+}
+
+body {
+
+    background-image: url('./carte-memory/fond.jpeg');
+    background-color: var(--couleur-fond);
+    color: var(--couleur-texte);
+    display: flex;
+    font-family: sans-serif;
+    flex-direction: column;
+    height: 100vh;
+    perspective: 2000px;
+    perspective-origin: 65% 35%;
+}
+
+h1 {
+
+    font-size: 48px;
+    margin-bottom: 25px;
+}
+
+h2 {
+
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+h3 {
+
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.hidden {
+
+    display: none !important;
+}
+
+.btn {
+
+    background-color: var(--fond-bouton);
+    border: 2px solid var(--bordure-bouton);
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 7px 10px;
+    transition: background 250ms cubic-bezier(0.4, 0.6, 0.4, 0.6);
+}
+
+.btn:hover {
+
+    background-color: var(--fond-bouton-actif);
+}
+
+.top-bar {
+
+    padding: 15px;
+    text-align: center;
+}
+
+.game-zone {
+
+    flex-grow: 1;
+}
+
+.win-panel {
+
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.win-title {
+
+    font-size: 52px;
+    margin-bottom: 20px;
+}
+
+.win-subtitle {
+
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.deck {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 auto;
+    width: 790px;
+}
+
+.card {
+
+    cursor: pointer;
+    border-radius: 3px;
+    height: 150px;
+    position: relative;
+    width: 150px;
+    transform: rotateY(0);
+    transition: transform 300ms cubic-bezier(0, 0.6, 1, 1.5);
+}
+
+.card>div {
+
+    background: var(--couleur-fond) center/cover no-repeat;
+    border: 2px solid var(--bordure-carte);
+    border-radius: 3px;
+    left: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.card>div.image {
+
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+.card>div.back {
+
+    background-image: url('./carte-memory/dos.jpg');
+    transition: z-index 300ms cubic-bezier(0, 0.6, 1, 1.5);
+    z-index: 2;
+}
+
+
+.card.flipped {
+
+    transform: rotateY(180deg);
+}
+
+.card.flipped .image {
+
+    z-index: 2;
+}
+
+.card.flipped .back {
+
+    z-index: 1;
+}
